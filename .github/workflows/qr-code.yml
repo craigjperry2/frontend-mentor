@@ -41,9 +41,8 @@ jobs:
         npm run build
   
     - name: Persist artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-pages-artifact@v1.0.7
       with:
-        name: github-pages
         path: qr-code-component-main/dist
 
     - name: Deploy GitHub Pages site
