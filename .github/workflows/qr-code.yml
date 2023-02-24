@@ -39,6 +39,12 @@ jobs:
         cd qr-code-component-main
         npm ci
         npm run build
+  
+    - name: Persist artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist
+        path: qr-code-component-main/dist
 
     - name: Deploy GitHub Pages site
       uses: actions/deploy-pages@v1.2.4
