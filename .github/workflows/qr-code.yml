@@ -34,16 +34,20 @@ jobs:
         cache: 'npm'
         cache-dependency-path: 'qr-code-component-main/package-lock.json'
     
-    - name: Install
+    - name: Build QR Code
       run: |
         cd qr-code-component-main
         npm ci
         npm run build
+    
+    - name: Build Landing Page
+      run: |
+        mv qr-code-component-main/dist homepage/qrcode
   
     - name: Persist artifact
       uses: actions/upload-pages-artifact@v1.0.7
       with:
-        path: qr-code-component-main/dist
+        path: homepage
 
     - name: Deploy GitHub Pages site
       uses: actions/deploy-pages@v1.2.4
